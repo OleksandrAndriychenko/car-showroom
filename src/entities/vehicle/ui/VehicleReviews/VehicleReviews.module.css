@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.reviewItem {
+    padding: var(--space-md);
+    background-color: rgba(13, 17, 23, 0.6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.author {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.rating {
+    color: #f1c40f;
+    font-size: 0.875rem;
+}
+
+.comment {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.date {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}

@@ -1,0 +1,33 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+.empty {
+    text-align: center;
+    padding: var(--space-2xl) 0;
+    color: var(--color-text-secondary);
+}
+
+.loading, .error {
+    text-align: center;
+    padding: var(--space-2xl) 0;
+    font-size: 1.1rem;
+}
+
+.error {
+    color: var(--color-error);
+}
+
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

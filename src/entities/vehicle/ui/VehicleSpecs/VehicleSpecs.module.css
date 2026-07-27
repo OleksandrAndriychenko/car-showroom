@@ -1,0 +1,35 @@
+.specs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-xs) 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 0.9rem;
+}
+
+.label {
+    color: var(--color-text-secondary);
+}
+
+.value {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
