@@ -5,12 +5,24 @@ import { VehicleGallery } from '@entities/vehicle/ui/VehicleGallery/VehicleGalle
 import { Card } from '@shared/ui/Card/Card';
 import { VehicleSpecs } from '@entities/vehicle/ui/VehicleSpecs/VehicleSpecs';
 import { VehicleReviews } from '@entities/vehicle/ui/VehicleReviews/VehicleReviews';
+import { Review } from '@entities/vehicle/model/types';
+import { useCommentsStore } from '@features/add-comment/model/useCommentsStore';
+import { AddCommentsForm } from '@features/add-comment/ui/AddCommentForm/AddCommentForm';
+import { useMemo } from 'react';
 
 export const VehiclePage = () => {
     const { id } = useParams<{ id: string }>();
     const vehicleId = Number(id);
 
     const { data: vehicle, isLoading, isError, error } = useVehicle(vehicleId);
+
+    const comments = useCommentsStore((state) => state.comments);
+    
+
+    const localComments = useMemo(
+        () => comments.filter((comment) => comment.vehicleId === vehicleId),
+        [comments, vehicleId]
+    );
     
     if (isLoading) {
         return <div className={styles.loading}>Завантаження інформації про автомобіль...</div>
@@ -23,6 +35,16 @@ export const VehiclePage = () => {
             </div>
         );
     }
+
+    const mappedLocalReviews: Review[] = localComments.map((comment) => ({
+        reviewerName: comment.author,
+        rating: comment.rating,
+        comment: comment.text,
+        date: comment.createdAt,
+        reviewerEmail: '',
+    }));
+
+    const allReviews: Review[] = [...mappedLocalReviews, ...vehicle.reviews];
 
     return (
         <>
@@ -54,7 +76,8 @@ export const VehiclePage = () => {
                 </div>
             </div>
             <div className={styles.section}>
-                <VehicleReviews reviews={vehicle.reviews} />
+                <AddCommentsForm vehicleId={vehicleId} />
+                <VehicleReviews reviews={allReviews} />
             </div>
         </>
     );

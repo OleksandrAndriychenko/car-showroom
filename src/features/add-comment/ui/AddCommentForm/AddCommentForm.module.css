@@ -1,0 +1,55 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    backdrop-filter: blur(8px);
+}
+
+.title {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.select, .textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: rgba(13, 17, 23, 0.7);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text-primary);
+    transition: border-color var(--transition-fast);
+}
+
+.textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.select:focus, .textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.hasError {
+    border-color: var(--color-error);
+}
+
+.error {
+    font-size: 0.75rem;
+    color: var(--color-error);
+}
