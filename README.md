@@ -58,26 +58,27 @@ Markdown
 ```bash
 git clone <https://github.com/OleksandrAndriychenko/car-showroom>
 cd <car-showroom>
-
-
+```
 ### Крок 2: Встановлення залежностей
 
 Використовуйте npm (або yarn/pnpm, якщо ви зазвичай ними користуєтесь):
 
-```Bash
+```bash
 npm install
 
-
+```
 ### Крок 3: Запуск сервера розробки
 
-Bash
+```Bash
 npm run dev
 
+```
 
 Після успішного запуску термінал покаже локальну адресу (зазвичай це http://localhost:5173). Відкрийте це посилання у браузері.
 
 ## Інші команди
 
+```Bash
 npm run build — збірка проєкту для продакшену.
 
 npm run lint — перевірка коду лінтером.
