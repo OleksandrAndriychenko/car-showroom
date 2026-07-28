@@ -2,26 +2,30 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    width: 100%;
 }
 
 .mainImageWrapper {
     width: 100%;
-    height: 380px;
+    aspect-ratio: 2 / 1;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: var(--border-radius-md);
-    overflow: hidden;
     border: 1px solid var(--color-border);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-sm);
+    padding: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .mainImage {
     width: 100%;
     height: 100%;
+    transform: scale(2);
     object-fit: contain;
-    object-position: center;
+    display: block;
+    transition: transform var(--transition-fast);
 }
 
 .thumbnails {
@@ -29,11 +33,13 @@
     gap: var(--space-sm);
     overflow-x: auto;
     padding-bottom: var(--space-xs);
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
 .thumbButton {
-    width: 80px;
-    height: 60px;
+    width: 60px;
+    height: 42px;
     border-radius: var(--border-radius-sm);
     overflow: hidden;
     border: 2px solid transparent;
@@ -42,6 +48,7 @@
     padding: 0;
     flex-shrink: 0;
     background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .thumbButton:hover {
@@ -58,4 +65,20 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+@media (max-width: 600px) {
+    .mainImageWrapper {
+        aspect-ratio: 16 / 10;
+        padding: 0;
+    }
+
+    .mainImage {
+        transform: scale(1.8);
+    }
+
+    .thumbButton {
+        width: 48px;
+        height: 32px;
+    }
 }

@@ -6,14 +6,20 @@ interface VehicleGalleryProps {
     images: string[];
     title: string;
 }
+
 export const VehicleGallery = ({ images, title }: VehicleGalleryProps) => {
     const [selectedImage, setSelectedImage] = useState<string>(images[0] || '');
 
     if (!images.length) return null;
+
     return (
         <div className={styles.gallery}>
             <div className={styles.mainImageWrapper}>
-                <img src={selectedImage} alt={title} className={styles.mainImages} />
+                <img 
+                    src={selectedImage} 
+                    alt={title} 
+                    className={styles.mainImage} 
+                />
             </div>
             {images.length > 1 && (
                 <div className={styles.thumbnails}>
@@ -26,7 +32,11 @@ export const VehicleGallery = ({ images, title }: VehicleGalleryProps) => {
                             )}
                             onClick={() => setSelectedImage(img)}
                         >
-                            <img src={img} alt={`${title} ${index + 1}`} className={styles.thumbImage} />
+                            <img 
+                                src={img} 
+                                alt={`${title} ${index + 1}`} 
+                                className={styles.thumbImage} 
+                            />
                         </button>
                     ))}
                 </div>
