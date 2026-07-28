@@ -49,7 +49,7 @@ export const VehiclePage = () => {
     return (
         <div className={styles.container}>
             <Link to="/" className={styles.backLink}>
-                ← Назад в каталог
+                ← Назад до каталогу
             </Link>
 
             <div className={styles.galleryWrapper}>

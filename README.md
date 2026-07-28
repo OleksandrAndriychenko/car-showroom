@@ -1,77 +1,83 @@
-# React + TypeScript + Vite
+Markdown
+# 🚗 Vehicle Catalog Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Сучасний вебзастосунок для перегляду каталогу автомобілів, детальної інформації про них, додавання відгуків та перегляду схожих пропозицій. Побудований на React з використанням Feature-Sliced Design (FSD) архітектури.
 
-Currently, two official plugins are available:
+👉 **[Подивитися розгорнутий застосунок (Live Demo)]**
+*(car-showroom-weld-nine.vercel.app)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📝 Опис функціоналу
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+У цьому застосунку реалізовано наступний функціонал:
 
-Note: This will impact Vite dev & build performances.
+1.  **Каталог автомобілів (`/`):**
+    *   Відображення списку автомобілів у вигляді карток.
+    *   Дані завантажуються з реального API (DummyJSON).
+    *   Реалізовано "скелетони" загрузки для кращого UX при очікуванні даних.
 
-## Expanding the ESLint configuration
+2.  **Сторінка детальної інформації (`/vehicle/:id`):**
+    *   **Адаптивна галерея:** Перегляд зображень автомобіля. Головне зображення підлаштовується під розмір екрана (mobile-first), зберігаючи пропорції, та не обрізається.
+    *   **Інформація про авто:** Назва, ціна, рейтинг, опис та технічні характеристики.
+    *   **Переміщення контенту:** Опис та характеристики адаптивно переміщуються вниз під галерею на мобільних пристроях.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3.  **Система відгуків:**
+    *   Відображення існуючих відгуків з API.
+    *   **Додавання коментаря:** Форма з полями для імені, рейтингу (зірочки) та тексту коментаря.
+    *   Додані локально коментарі відображаються разом із коментарями з API, мають мітку "Локальний" та зберігаються між переходами по сторінках (завдяки Zustand).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+4.  **Блок рекомендацій "Вам також може сподобатися":**
+    *   Автоматичний підбір схожих автомобілів на основі типу кузова (з тегів API) та близького цінового діапазону (±25%).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠 Технологічний стек
 
-```
+*   **Vite** + **React** + **TypeScript**
+*   **React Query** (TanStack Query) — для серверного стейту та кешування запитів.
+*   **Zustand** — для клієнтського стейту (збереження локальних коментарів).
+*   **React Router** — для навігації.
+*   **CSS Modules** — для стилізації.
+*   **clsx** — для зручної роботи з класами.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💻 Інструкція по локальному запуску
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Виконайте ці кроки, щоб запустити проєкт на своєму комп'ютері.
 
-```
+### Попередні вимоги
+
+Переконайтеся, що у вас встановлено **Node.js** (рекомендовано версію LTS).
+
+### Крок 1: Клонування репозиторію
+
+Введіть у терміналі команду:
+
+```bash
+git clone <https://github.com/OleksandrAndriychenko/car-showroom>
+cd <car-showroom>
+
+
+### Крок 2: Встановлення залежностей
+
+Використовуйте npm (або yarn/pnpm, якщо ви зазвичай ними користуєтесь):
+
+```Bash
+npm install
+
+
+### Крок 3: Запуск сервера розробки
+
+Bash
+npm run dev
+
+
+Після успішного запуску термінал покаже локальну адресу (зазвичай це http://localhost:5173). Відкрийте це посилання у браузері.
+
+## Інші команди
+
+npm run build — збірка проєкту для продакшену.
+
+npm run lint — перевірка коду лінтером.
