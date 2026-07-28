@@ -25,7 +25,7 @@ export const VehiclePage = () => {
     );
 
     if (isLoading) {
-        return <div className={styles.loading}>Загрузка информации об авто...</div>;
+        return <div className={styles.loading}>Завантаження інформації про автомобіль...</div>;
     }
 
     if (isError || !vehicle) {
