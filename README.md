@@ -4,8 +4,7 @@ Markdown
 Сучасний вебзастосунок для перегляду каталогу автомобілів, детальної інформації про них, додавання відгуків та перегляду схожих пропозицій. Побудований на React з використанням Feature-Sliced Design (FSD) архітектури.
 
 👉 **[Подивитися розгорнутий застосунок (Live Demo)]**
-
-car-showroom-weld-nine.vercel.app
+[car-showroom-weld-nine.vercel.app](https://car-showroom-weld-nine.vercel.app)
 
 ---
 
