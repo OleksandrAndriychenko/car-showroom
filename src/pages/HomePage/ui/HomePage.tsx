@@ -9,6 +9,7 @@ import { VehicleCard } from "@entities/vehicle/ui/VehicleCard/VehicleCard";
 export const HomePage = () => {
     const { data, isLoading, isError, error } = useVehicles();
     const { searchQuery, sortBy, selectedBrand } = useVehicleFilterStore();
+    console.log(data)
 
     const brands = useMemo(() => {
         if (!data?.products) return [];
